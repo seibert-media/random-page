@@ -1,0 +1,22 @@
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+	<plugin-info>
+		<description>${project.description}</description>
+		<version>${project.version}</version>
+		<vendor name="${project.organization.name}" url="${project.organization.url}"/>
+		<param name="plugin-icon">images/seibertIcon.png</param>
+		<param name="plugin-logo">images/seibertLogo.png</param>
+	</plugin-info>
+
+	<resource type="i18n" name="i18n" location="/i18n/randompage"/>
+	<resource type="download" name="images/" location="/images"/>
+
+	<web-resource key="randompage-resources" name="randompage Web Resources">
+		<dependency>com.atlassian.auiplugin:ajs</dependency>
+
+		<resource type="download" name="randompage.css" location="/css/randompage.css"/>
+		<resource type="download" name="randompage.js" location="/js/randompage.js"/>
+
+		<context>randompage</context>
+	</web-resource>
+
+</atlassian-plugin>
