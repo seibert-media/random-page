@@ -1,11 +1,11 @@
 "use strict";
 
-var confluenceProtractorBase = require('confluence-protractor-base').confluenceProtractorBase;
+var confluenceProtractorBase = require("confluence-protractor-base").confluenceProtractorBase;
 var UniversalPluginManager = confluenceProtractorBase.pageObjects.UniversalPluginManager;
 
 var failFastReporter = confluenceProtractorBase.jasmineReporters.failFastReporter;
 
-describe('Random Page (plugin installation)', function () {
+describe("Random Page (plugin installation)", function () {
 
 	var universalPluginManager = new UniversalPluginManager();
 
@@ -18,12 +18,12 @@ describe('Random Page (plugin installation)', function () {
 
 	afterAll(failFastReporter.disable);
 
-	it('installs the plugin', function () {
+	it("installs the plugin", function () {
 		var mavenVersion = universalPluginManager.parseMavenVersionFromPom();
-		// 'randompage' -> plugin <artifactId> from pom.xml
-		var pluginPath = './target/randompage-' + mavenVersion + '.obr';
-		// 'Random Page' -> plugin <name> from pom.xml
-		universalPluginManager.uploadPlugin('Random Page', pluginPath, PLUGIN_UPLOAD_TIMEOUT);
+		// "randompage" -> plugin <artifactId> from pom.xml
+		var pluginPath = "./target/randompage-" + mavenVersion + ".obr";
+		// "Random Page" -> plugin <name> from pom.xml
+		universalPluginManager.uploadPlugin("Random Page", pluginPath, PLUGIN_UPLOAD_TIMEOUT);
 	}, PLUGIN_UPLOAD_TIMEOUT);
 
 });

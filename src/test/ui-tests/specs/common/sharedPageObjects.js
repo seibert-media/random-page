@@ -1,21 +1,21 @@
 "use strict";
 
-var confluenceProtractorBase = require('confluence-protractor-base').confluenceProtractorBase;
+var confluenceProtractorBase = require("confluence-protractor-base").confluenceProtractorBase;
 var ConfluenceSpace = confluenceProtractorBase.pageObjects.ConfluenceSpace;
 var ConfluencePage = confluenceProtractorBase.pageObjects.ConfluencePage;
 
-var RandomPage = require('../../page-objects/RandomPage');
+var RandomPage = require("../../page-objects/RandomPage");
 
-var fruitSpaceKey = 'FRUIT';
-var cheeseSpaceKey = 'CHEESE';
-var vegetableSpaceKey = 'VEGETABLE';
+var fruitSpaceKey = "FRUIT";
+var cheeseSpaceKey = "CHEESE";
+var vegetableSpaceKey = "VEGETABLE";
 
 var sharedPageObjects = {
 	randomPage: new RandomPage(),
 	spaces: {
-		Fruit: new ConfluenceSpace(fruitSpaceKey, 'Fruit'),
-		Cheese: new ConfluenceSpace(cheeseSpaceKey, 'Cheese'),
-		Vegetable: new ConfluenceSpace(vegetableSpaceKey, 'Vegetable')
+		Fruit: new ConfluenceSpace(fruitSpaceKey, "Fruit"),
+		Cheese: new ConfluenceSpace(cheeseSpaceKey, "Cheese"),
+		Vegetable: new ConfluenceSpace(vegetableSpaceKey, "Vegetable")
 	},
 	pages: {
 		Apple: new ConfluencePage("Apple", fruitSpaceKey),

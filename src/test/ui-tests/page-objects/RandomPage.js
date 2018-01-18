@@ -1,6 +1,6 @@
 "use strict";
 
-var confluenceProtractorBase = require('confluence-protractor-base').confluenceProtractorBase;
+var confluenceProtractorBase = require("confluence-protractor-base").confluenceProtractorBase;
 var ConfluenceBase = confluenceProtractorBase.pageObjects.ConfluenceBase;
 
 function RandomPage() {
