@@ -33,11 +33,6 @@ public class RandomPageResource {
 
 	@GET
 	public List<RandomPageDto> getPermissions(@QueryParam("limit") @DefaultValue(DEFAULT_LIMIT) int limit) {
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 		return randomPage.getPages(limit);
 	}
 }
