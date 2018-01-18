@@ -45,5 +45,5 @@
 	</xhtml-macro>
 
 	<!-- REST -->
-	<rest key="random-page-rest" path="/random-page" version="1.0" />
+	<rest key="random-page-rest" path="/random-page" version="1.0"/>
 </atlassian-plugin>

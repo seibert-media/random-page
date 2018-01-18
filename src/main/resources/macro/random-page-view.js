@@ -13,13 +13,13 @@ SeibertMedia.RandomPage.View = (function ($, AJS, Backbone, Model, Soy) {
 		render: function () {
 			var $el = $("#randomPageWrapper"); // line 8 does not work...
 			$el.spin();
-			this.model.getRandomPages($el.data("limit")).always(function() {
+			this.model.getRandomPages($el.data("limit")).always(function () {
 				$el.spinStop();
 			}).done(function (randomPages) {
 				$el.html(Soy.randomPages({pages: randomPages}));
 			}).fail(function (err) {
 				AJS.debug("failed to load random pages", err);
-			})
+			});
 		}
 	});
 

@@ -5,11 +5,11 @@
  */
 {template .randomPages}
 	<ul>
-	{foreach $page in $pages}
-		{call .randomPage}
-			{param page: $page /}
-		{/call}
-	{/foreach}
+		{foreach $page in $pages}
+			{call .randomPage}
+				{param page: $page /}
+			{/call}
+		{/foreach}
 	</ul>
 {/template}
 

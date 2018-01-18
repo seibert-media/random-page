@@ -1,8 +1,6 @@
 module.exports = {
 	"env": {
-		"browser": true,
-		"node": true,
-		"jasmine": true
+		"browser": true
 	},
 	"globals": {
 		"SeibertMedia": false,
@@ -13,13 +11,7 @@ module.exports = {
 		"moment": false,
 		"_": false
 	},
-	"extends": ["eslint:recommended",
-		"plugin:jasmine/recommended",
-		"plugin:protractor/recommended"],
-	"plugins": [
-		"jasmine",
-		"protractor"
-	],
+	"extends": "eslint:recommended",
 	"rules": {
 		"no-extra-parens": "off", // NOT USEFUL - not in recommended?
 		"no-inner-declarations": [
@@ -207,8 +199,7 @@ module.exports = {
 			"error",
 			"always"
 		],
-		"wrap-regex": "error",
-		"jasmine/no-spec-dupes": "off"
+		"wrap-regex": "error"
 	}
 };
 

@@ -18,7 +18,8 @@
 		"test-e2e-cleanup": "protractor src/test/ui-tests/protractorConfig.js --specs src/test/ui-tests/specs/common/cleanupTestSetup.spec.js",
 		"webdriver-start": "webdriver-manager start --seleniumPort 4445",
 		"webdriver-update": "webdriver-manager update",
-		"lint": "eslint ."
+		"lint": "eslint src/main/resources",
+		"lint-e2e": "eslint src/test"
 	},
 	"repository": {
 		"type": "git",
