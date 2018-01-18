@@ -20,17 +20,19 @@ public class RandomPageMacro extends BaseMacro implements Macro {
 
 	private static final Logger log = LoggerFactory.getLogger(RandomPageMacro.class);
 
-	private static final String MACRO_TEMPLATE = "/macro/randompage.vm";
+	private static final String MACRO_TEMPLATE = "/macro/random-page.vm";
 
 	public String execute(final Map<String, String> parameters, final String body, final ConversionContext context) throws MacroExecutionException {
-		return getRenderedTemplate(MACRO_TEMPLATE, defaultVelocityContext());
+		Map<String, Object> velocityContext = defaultVelocityContext();
+		velocityContext.putAll(parameters);
+
+		return getRenderedTemplate(MACRO_TEMPLATE, velocityContext);
 	}
 
 	public String execute(final Map parameters, final String body, final RenderContext renderContext) throws MacroException {
 		try {
 			return execute(parameters, body, (ConversionContext) null);
-		}
-		catch (final MacroExecutionException e) {
+		} catch (final MacroExecutionException e) {
 			log.warn("Failed to execute macro", e);
 			throw new MacroException(e);
 		}
