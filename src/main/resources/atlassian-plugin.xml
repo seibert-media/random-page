@@ -17,9 +17,11 @@
 	</web-resource>
 
 	<!-- MACRO -->
-	<xhtml-macro name="randompage" class="net.seibertmedia.confluence.randompage.macro.RandomPageMacro"
-				 key="randompage-xhtml" icon="/download/resources/net.seibertmedia.confluence.randompage/images/seibertLogo.png">
-		<parameters />
+	<xhtml-macro name="randompagemacro" class="net.seibertmedia.confluence.randompage.macro.RandomPageMacro"
+				 key="randompagemacro" icon="/download/resources/net.seibertmedia.confluence.randompage/images/seibertLogo.png">
+		<parameters>
+			<parameter name="number" type="int" default="1" required="true"/>
+		</parameters>
 	</xhtml-macro>
 
 </atlassian-plugin>
