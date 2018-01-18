@@ -10,13 +10,16 @@
 	<resource type="i18n" name="i18n" location="/i18n/randompage"/>
 	<resource type="download" name="images/" location="/images"/>
 
-	<web-resource key="randompage-resources" name="randompage Web Resources">
-		<dependency>com.atlassian.auiplugin:ajs</dependency>
-
-		<resource type="download" name="randompage.css" location="/css/randompage.css"/>
-		<resource type="download" name="randompage.js" location="/js/randompage.js"/>
-
-		<context>randompage</context>
+	<!-- WEB RESOURCE -->
+	<web-resource key="random-page-macro-resources" name="Random Page Macro Resources">
+		<resource type="download" name="randompage.css" location="macro/randompage.css"/>
+		<resource type="download" name="randompage.js" location="macro/randompage.js"/>
 	</web-resource>
+
+	<!-- MACRO -->
+	<xhtml-macro name="randompage" class="net.seibertmedia.confluence.randompage.macro.RandomPageMacro"
+				 key="randompage-xhtml" icon="/download/resources/net.seibertmedia.confluence.randompage/images/seibertLogo.png">
+		<parameters />
+	</xhtml-macro>
 
 </atlassian-plugin>

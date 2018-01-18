@@ -1,0 +1,3 @@
+#requireResource("net.seibertmedia.confluence.randompage:random-page-macro-resources")
+
+<div class="randomPageWrapper">TEST</div>
