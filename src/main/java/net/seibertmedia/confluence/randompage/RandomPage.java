@@ -25,8 +25,8 @@ public class RandomPage {
 		this.searchService = searchService;
 	}
 
-	public List<RandomPageDto> getPages(final int limit) {
-		List<AbstractPage> pages = searchService.searchPages(limit);
+	public List<RandomPageDto> getPages(final int pageCount) {
+		List<AbstractPage> pages = searchService.searchPages(pageCount);
 
 		return pages.stream()
 				.map(RandomPageDto::fromPage)

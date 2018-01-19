@@ -60,12 +60,12 @@ public class RandomPageSearchService {
 		this.pageManager = pageManager;
 	}
 
-	public List<AbstractPage> searchPages(final int limit) {
+	public List<AbstractPage> searchPages(final int pageCount) {
 		final SearchQuery query = pagesQuery();
 
 		try {
-			log.debug("search for pages with query '{}' and limit '{}'", query, limit);
-			final SearchResults results = searchPages(query, limit);
+			log.debug("search for pages with query '{}' and pageCount '{}'", query, pageCount);
+			final SearchResults results = searchPages(query, pageCount);
 			return getAbstractPagesFromSearchResults(results);
 		} catch (final InvalidSearchException e) {
 			log.error("problems searching pages; query {}", query, e);
@@ -81,11 +81,11 @@ public class RandomPageSearchService {
 		return new ContentTypeQuery(ContentTypeEnum.PAGE);
 	}
 
-	private SearchResults searchPages(final SearchQuery query, final int limit) throws InvalidSearchException {
+	private SearchResults searchPages(final SearchQuery query, final int pageCount) throws InvalidSearchException {
 		final SearchSort searchSort = new CreatedSort(Order.DESCENDING);
 		final SearchFilter searchFilter = getSearchFilter();
 
-		final ISearch search = new ContentSearch(query, searchSort, searchFilter, 0, limit);
+		final ISearch search = new ContentSearch(query, searchSort, searchFilter, 0, pageCount);
 
 		return searchManager.search(search);
 	}

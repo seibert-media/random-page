@@ -22,7 +22,7 @@ import net.seibertmedia.confluence.randompage.RandomPage;
 @Produces(MediaType.APPLICATION_JSON)
 public class RandomPageResource {
 
-	private static final String DEFAULT_LIMIT = "1";
+	private static final String DEFAULT_PAGE_COUNT = "1";
 
 	private final RandomPage randomPage;
 
@@ -32,7 +32,7 @@ public class RandomPageResource {
 	}
 
 	@GET
-	public List<RandomPageDto> getPermissions(@QueryParam("limit") @DefaultValue(DEFAULT_LIMIT) int limit) {
-		return randomPage.getPages(limit);
+	public List<RandomPageDto> getPermissions(@QueryParam("pageCount") @DefaultValue(DEFAULT_PAGE_COUNT) int pageCount) {
+		return randomPage.getPages(pageCount);
 	}
 }

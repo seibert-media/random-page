@@ -17,7 +17,7 @@ var MACRO_PARAMS = {
 /**
  * @extends {ConfluenceMacro}
  * @param params {object}
- * @param? params.limit {int} number of random page to be shown
+ * @param? params.pageCount {int} number of random pages to be shown
  * @constructor
  */
 function RandomPageMacro(params) {
@@ -28,15 +28,15 @@ function RandomPageMacro(params) {
 
 	// overwrite this method for setting macro values
 	this.insertMacroParams = function () {
-		self.setLimit();
+		self.setPageCount();
 	};
 
-	this.setLimit = function () {
-		if (self.params.limit) {
+	this.setPageCount = function () {
+		if (self.params.pageCount) {
 			// asyncElement waits until the element is actually displayed
-			var limitInput = asyncElement(by.id("macro-param-limit"));
-			limitInput.clear();
-			limitInput.sendKeys(self.params.limit);
+			var pageCountInput = asyncElement(by.id("macro-param-pagecount"));
+			pageCountInput.clear();
+			pageCountInput.sendKeys(self.params.pageCount);
 		}
 	};
 

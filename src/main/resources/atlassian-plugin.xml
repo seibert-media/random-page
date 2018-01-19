@@ -40,7 +40,7 @@
 	<xhtml-macro name="random-page-macro" class="net.seibertmedia.confluence.randompage.macro.RandomPageMacro"
 				 key="random-page-macro" icon="/download/resources/net.seibertmedia.confluence.randompage/images/seibertLogo.png">
 		<parameters>
-			<parameter name="limit" type="int" default="1" required="true"/>
+			<parameter name="pageCount" type="int" default="1" required="true"/>
 		</parameters>
 	</xhtml-macro>
 

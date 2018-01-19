@@ -5,13 +5,13 @@ SeibertMedia.RandomPage.Model = (function (AJS, Backbone) {
 	"use strict";
 
 	var RandomPage = Backbone.Model.extend({
-		defaultLimit: 1,
+		defaultPageCount: 1,
 		url: AJS.contextPath() + "/rest/random-page/1.0/random-page",
-		/** @param {int} limit
+		/** @param {int} pageCount
 		 *  @return {JQueryXHR} */
-		getRandomPages: function (limit) {
+		getRandomPages: function (pageCount) {
 			return Backbone.ajax({
-				url: this.url + "?limit=" + limit || this.defaultLimit,
+				url: this.url + "?pageCount=" + pageCount || this.defaultPageCount,
 				type: "GET",
 				contentType: "application/json",
 				headers: {

@@ -22,8 +22,8 @@ describe("RandomPageMacro", function () {
 	});
 
 	describe("Insertion and Configuration", function () {
-		var limit = 5;
-		var macro = new RandomPageMacro({limit: limit});
+		var pageCount = 5;
+		var macro = new RandomPageMacro({pageCount: pageCount});
 
 		it('creates page', function () {
 			var pageTitleLocator = by.css('#title-text');
@@ -51,10 +51,10 @@ describe("RandomPageMacro", function () {
 			expect(macro.isMacroPresent()).toBe(true);
 		});
 
-		it("shows '" + limit + "' pages", function () {
+		it("shows '" + pageCount + "' pages", function () {
 			var randomPages = macro.getRandomPages();
 
-			expect(randomPages.count()).toBe(limit);
+			expect(randomPages.count()).toBe(pageCount);
 		});
 	});
 });

@@ -19,15 +19,15 @@ public class RandomPageMacro implements Macro {
 
 	private static final String MACRO_TEMPLATE = "/macro/random-page.vm";
 
-	private static final String DEFAULT_LIMIT = "1";
-	private static final String LIMIT_KEY = "limit";
+	private static final String DEFAULT_PAGE_COUNT = "1";
+	private static final String PAGE_COUNT_KEY = "pageCount";
 
 	@Override
 	public String execute(final Map<String, String> parameters, final String body, final ConversionContext context) throws MacroExecutionException {
 		log.error("execute macro with params: {}", parameters);
 
 		Map<String, Object> velocityContext = defaultVelocityContext();
-		velocityContext.put(LIMIT_KEY, defaultIfNull(parameters.get(LIMIT_KEY), DEFAULT_LIMIT));
+		velocityContext.put(PAGE_COUNT_KEY, defaultIfNull(parameters.get(PAGE_COUNT_KEY), DEFAULT_PAGE_COUNT));
 
 		log.error("execute macro with params: {}", velocityContext);
 		return getRenderedTemplate(MACRO_TEMPLATE, velocityContext);
