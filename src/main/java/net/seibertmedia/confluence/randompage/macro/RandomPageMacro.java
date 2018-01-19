@@ -15,7 +15,7 @@ import com.atlassian.confluence.macro.MacroExecutionException;
 
 public class RandomPageMacro implements Macro {
 
-	private static final Logger log = LoggerFactory.getLogger(RandomPageMacro.class);
+	private static final Logger logger = LoggerFactory.getLogger(RandomPageMacro.class);
 
 	private static final String MACRO_TEMPLATE = "/macro/random-page.vm";
 
@@ -24,12 +24,11 @@ public class RandomPageMacro implements Macro {
 
 	@Override
 	public String execute(final Map<String, String> parameters, final String body, final ConversionContext context) throws MacroExecutionException {
-		log.error("execute macro with params: {}", parameters);
+		logger.debug("execute macro with params: {}", parameters);
 
 		Map<String, Object> velocityContext = defaultVelocityContext();
 		velocityContext.put(PAGE_COUNT_KEY, defaultIfNull(parameters.get(PAGE_COUNT_KEY), DEFAULT_PAGE_COUNT));
 
-		log.error("execute macro with params: {}", velocityContext);
 		return getRenderedTemplate(MACRO_TEMPLATE, velocityContext);
 	}
 

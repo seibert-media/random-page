@@ -5,6 +5,8 @@ var ConfluenceSpace = confluenceProtractorBase.pageObjects.ConfluenceSpace;
 var ConfluencePage = confluenceProtractorBase.pageObjects.ConfluencePage;
 
 var RandomPage = require("../../page-objects/RandomPage");
+var RandomPageAdministration = require("../../page-objects/RandomPageAdministration");
+
 
 var fruitSpaceKey = "FRUIT";
 var cheeseSpaceKey = "CHEESE";
@@ -12,6 +14,7 @@ var vegetableSpaceKey = "VEGETABLE";
 
 var sharedPageObjects = {
 	randomPage: new RandomPage(),
+	randomPageAdministration: new RandomPageAdministration(),
 	spaces: {
 		Fruit: new ConfluenceSpace(fruitSpaceKey, "Fruit"),
 		Cheese: new ConfluenceSpace(cheeseSpaceKey, "Cheese"),

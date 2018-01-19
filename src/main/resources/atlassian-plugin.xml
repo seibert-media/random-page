@@ -46,4 +46,29 @@
 
 	<!-- REST -->
 	<rest key="random-page-rest" path="/random-page" version="1.0"/>
+
+	<!-- ADMIN SECTION -->
+	<xwork key="random-page-admin-actions">
+		<package name="random-page" extends="default" namespace="/admin/plugins/randompage">
+			<default-interceptor-ref name="defaultStack"/>
+			<action name="admin" class="net.seibertmedia.confluence.randompage.admin.RandomPageAdminAction">
+				<interceptor-ref name="validatingStack"/>
+				<result name="success" type="velocity">/admin/random-page-admin.vm</result>
+				<result name="cancel" type="redirect">/admin/plugins/randompage/admin.action</result>
+			</action>
+			<action name="admin-save" class="net.seibertmedia.confluence.randompage.admin.RandomPageAdminAction" method="doSave">
+				<interceptor-ref name="validatingStack"/>
+				<result name="success" type="redirectwithflash">/admin/plugins/randompage/admin.action</result>
+			</action>
+		</package>
+	</xwork>
+
+	<web-section key="random-page-admin-section" location="system.admin" weight="400">
+		<label key="net.seibertmedia.confluence.randompage.admin.section.label"/>
+	</web-section>
+
+	<web-item key="random-page-admin-web-item" section="system.admin/random-page-admin-section" weight="110">
+		<label key="net.seibertmedia.confluence.randompage.admin.item.label"/>
+		<link>/admin/plugins/randompage/admin.action</link>
+	</web-item>
 </atlassian-plugin>
