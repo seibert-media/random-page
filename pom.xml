@@ -19,22 +19,17 @@
 	<packaging>atlassian-plugin</packaging>
 
 	<properties>
-		<confluence.version>6.4.0</confluence.version>
-		<confluence.data.version>6.4.0</confluence.data.version>
+		<confluence.version>5.9.14</confluence.version>
+		<confluence.data.version>5.9.14</confluence.data.version>
 		<amps.version>6.3.6</amps.version>
 		<plugin.testrunner.version>1.2.3</plugin.testrunner.version>
 		<atlassian.spring.scanner.version>1.2.13</atlassian.spring.scanner.version>
 		<atlassian.plugin.key>${project.groupId}.${project.artifactId}</atlassian.plugin.key>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jdkLevel>1.8</jdkLevel>
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.10</version>
-			<scope>test</scope>
-		</dependency>
 		<dependency>
 			<groupId>com.atlassian.confluence</groupId>
 			<artifactId>confluence</artifactId>
@@ -64,6 +59,12 @@
 		</dependency>
 
 		<!-- WIRED TEST RUNNER DEPENDENCIES -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.10</version>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>com.atlassian.plugins</groupId>
 			<artifactId>atlassian-plugins-osgi-testrunner</artifactId>
@@ -135,6 +136,14 @@
 						</dependency>
 					</scannedDependencies>
 					<verbose>false</verbose>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.2</version>
+				<configuration>
+					<source>${jdkLevel}</source>
+					<target>${jdkLevel}</target>
 				</configuration>
 			</plugin>
 		</plugins>

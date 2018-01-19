@@ -10,13 +10,40 @@
 	<resource type="i18n" name="i18n" location="/i18n/randompage"/>
 	<resource type="download" name="images/" location="/images"/>
 
-	<web-resource key="randompage-resources" name="randompage Web Resources">
+	<!-- WEB RESOURCE -->
+	<web-resource key="random-page-macro-resources" name="Random Page Macro Resources">
 		<dependency>com.atlassian.auiplugin:ajs</dependency>
+		<transformation extension="soy">
+			<transformer key="soyTransformer">
+				<functions>com.atlassian.confluence.plugins.soy:soy-core-functions</functions>
+			</transformer>
+		</transformation>
+		<transformation extension="js">
+			<transformer key="jsI18n"/>
+		</transformation>
+		<transformation extension="less">
+			<transformer key="less-transformer"/>
+		</transformation>
 
-		<resource type="download" name="randompage.css" location="/css/randompage.css"/>
-		<resource type="download" name="randompage.js" location="/js/randompage.js"/>
+		<resource type="download" name="random-page.less.css" location="macro/random-page.less"/>
 
-		<context>randompage</context>
+		<resource type="download" name="random-page.soy.js" location="macro/random-page.soy"/>
+
+		<resource type="download" name="namespace.js" location="common/namespace.js"/>
+
+		<resource type="download" name="random-page.js" location="macro/random-page.js"/>
+		<resource type="download" name="random-page-view.js" location="macro/random-page-view.js"/>
+		<resource type="download" name="random-page-init.js" location="macro/random-page-init.js"/>
 	</web-resource>
 
+	<!-- MACRO -->
+	<xhtml-macro name="random-page-macro" class="net.seibertmedia.confluence.randompage.macro.RandomPageMacro"
+				 key="random-page-macro" icon="/download/resources/net.seibertmedia.confluence.randompage/images/seibertLogo.png">
+		<parameters>
+			<parameter name="pageCount" type="int" default="1" required="true"/>
+		</parameters>
+	</xhtml-macro>
+
+	<!-- REST -->
+	<rest key="random-page-rest" path="/random-page" version="1.0"/>
 </atlassian-plugin>

@@ -1,22 +1,35 @@
 package net.seibertmedia.confluence.randompage;
 
+import static java.util.stream.Collectors.toList;
+
+import java.util.List;
+
 import javax.inject.Named;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.atlassian.confluence.pages.PageManager;
+import com.atlassian.confluence.pages.AbstractPage;
 import com.atlassian.plugin.spring.scanner.annotation.component.Scanned;
-import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
+
+import net.seibertmedia.confluence.randompage.rest.RandomPageDto;
+import net.seibertmedia.confluence.randompage.search.RandomPageSearchService;
 
 @Named
 @Scanned
 public class RandomPage {
 
-	@ComponentImport
-	private final PageManager pageManager;
+	private final RandomPageSearchService searchService;
 
 	@Autowired
-	public RandomPage(final PageManager pageManager) {
-		this.pageManager = pageManager;
+	public RandomPage(final RandomPageSearchService searchService) {
+		this.searchService = searchService;
+	}
+
+	public List<RandomPageDto> getPages(final int pageCount) {
+		List<AbstractPage> pages = searchService.searchPages(pageCount);
+
+		return pages.stream()
+				.map(RandomPageDto::fromPage)
+				.collect(toList());
 	}
 }
