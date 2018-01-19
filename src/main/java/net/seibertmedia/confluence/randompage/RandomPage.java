@@ -1,8 +1,10 @@
 package net.seibertmedia.confluence.randompage;
 
-import static java.util.stream.Collectors.toList;
-
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import javax.inject.Named;
 
@@ -26,10 +28,19 @@ public class RandomPage {
 	}
 
 	public List<RandomPageDto> getPages(final int pageCount) {
-		List<AbstractPage> pages = searchService.searchPages(pageCount);
+		List<AbstractPage> pages = searchService.searchPages();
 
 		return pages.stream()
+				.collect(toShuffledStream())
+				.limit(pageCount)
 				.map(RandomPageDto::fromPage)
-				.collect(toList());
+				.collect(Collectors.toList());
+	}
+
+	private static <T> Collector<T, ?, Stream<T>> toShuffledStream() {
+		return Collectors.collectingAndThen(Collectors.toList(), collected -> {
+			Collections.shuffle(collected);
+			return collected.stream();
+		});
 	}
 }
