@@ -7,7 +7,7 @@ SeibertMedia.RandomPage.Model = (function (AJS, Backbone) {
 	var RandomPage = Backbone.Model.extend({
 		defaultLimit: 1,
 		url: AJS.contextPath() + "/rest/random-page/1.0/random-page",
-		/** @param {limit} limit
+		/** @param {int} limit
 		 *  @return {JQueryXHR} */
 		getRandomPages: function (limit) {
 			return Backbone.ajax({
@@ -15,7 +15,7 @@ SeibertMedia.RandomPage.Model = (function (AJS, Backbone) {
 				type: "GET",
 				contentType: "application/json",
 				headers: {
-					Accept: "application/json",
+					"Accept": "application/json",
 					"X-Atlassian-Token": AJS.Meta.get("atl-token")
 				}
 			});

@@ -1,0 +1,30 @@
+{
+	"name": "random-page",
+	"description": "This is the Random Page Confluence app.",
+	"version": "0.0.0",
+	"dependencies": {
+		"lodash.foreach": "^4.5.0"
+	},
+	"devDependencies": {
+		"confluence-protractor-base": "0.7.9",
+		"eslint-plugin-jasmine": "^2.2.0",
+		"eslint-plugin-protractor": "^1.34.1",
+		"eslint": "^4.6.1"
+	},
+	"scripts": {
+		"test-e2e": "protractor src/test/ui-tests/protractorConfig.js",
+		"test-e2e-local": "protractor src/test/ui-tests/protractorConfig.js --seleniumAddress http://localhost:4445/wd/hub",
+		"test-e2e-prepare": "protractor src/test/ui-tests/protractorConfig.js --specs src/test/ui-tests/specs/common/prepareTestSetup.spec.js",
+		"test-e2e-cleanup": "protractor src/test/ui-tests/protractorConfig.js --specs src/test/ui-tests/specs/common/cleanupTestSetup.spec.js",
+		"webdriver-start": "webdriver-manager start --seleniumPort 4445",
+		"webdriver-update": "webdriver-manager update",
+		"lint": "eslint src/main/resources",
+		"lint-e2e": "eslint src/test"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/seibert-media/random-page"
+	},
+	"author": "//SEIBERT/MEDIA",
+	"license": "Commercial"
+}
