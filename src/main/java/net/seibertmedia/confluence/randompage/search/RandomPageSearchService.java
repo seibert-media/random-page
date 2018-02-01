@@ -40,35 +40,40 @@ import com.atlassian.plugin.spring.scanner.annotation.component.Scanned;
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 
 import bucket.core.persistence.hibernate.HibernateHandle;
+import net.seibertmedia.confluence.randompage.settings.RandomPageSettingsDao;
 
 @Named
 @Scanned
 public class RandomPageSearchService {
 
-	private static final Logger log = LoggerFactory.getLogger(RandomPageSearchService.class);
+	private static final Logger logger = LoggerFactory.getLogger(RandomPageSearchService.class);
 
 	@ComponentImport
 	private final SearchManager searchManager;
 	@ComponentImport
 	private final PageManager pageManager;
+	private final RandomPageSettingsDao settingsDao;
 
 	@Autowired
 	public RandomPageSearchService(
 			final SearchManager searchManager,
-			final PageManager pageManager) {
+			final PageManager pageManager,
+			final RandomPageSettingsDao settingsDao) {
 		this.searchManager = searchManager;
 		this.pageManager = pageManager;
+		this.settingsDao = settingsDao;
 	}
 
-	public List<AbstractPage> searchPages(final int pageCount) {
+	public List<AbstractPage> searchPages() {
 		final SearchQuery query = pagesQuery();
+		final int pageLimit = settingsDao.getRandomPageLimit();
 
 		try {
-			log.debug("search for pages with query '{}' and pageCount '{}'", query, pageCount);
-			final SearchResults results = searchPages(query, pageCount);
+			logger.debug("search for pages with query '{}' and pageCount '{}'", query, pageLimit);
+			final SearchResults results = searchPages(query, pageLimit);
 			return getAbstractPagesFromSearchResults(results);
 		} catch (final InvalidSearchException e) {
-			log.error("problems searching pages; query {}", query, e);
+			logger.error("problems searching pages; query {}", query, e);
 			return new ArrayList<>();
 		}
 	}
@@ -99,7 +104,7 @@ public class RandomPageSearchService {
 	}
 
 	private List<AbstractPage> getAbstractPagesFromSearchResults(final SearchResults results) {
-		log.debug("found {} results ({})", results.size(), results);
+		logger.debug("found {} results ({})", results.size(), results);
 
 		return StreamSupport.stream(results.spliterator(), false)
 				.map(this::getAbstractPage)
@@ -116,7 +121,7 @@ public class RandomPageSearchService {
 		if (handle instanceof HibernateHandle) {
 			id = ((HibernateHandle) handle).getId();
 		} else {
-			log.error("Expected HibernateHandle but got " + handle.getClass().getSimpleName());
+			logger.error("Expected HibernateHandle but got " + handle.getClass().getSimpleName());
 			return null;
 		}
 

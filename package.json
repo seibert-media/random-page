@@ -18,7 +18,8 @@
 		"webdriver-start": "webdriver-manager start --seleniumPort 4445",
 		"webdriver-update": "webdriver-manager update",
 		"lint": "eslint src/main/resources",
-		"lint-e2e": "eslint src/test"
+		"lint-e2e": "eslint src/test",
+		"test-e2e-atlas": "protractor src/test/ui-tests/protractorConfig.js --baseUrl http://localhost:1990/confluence/  --seleniumAddress http://localhost:4445/wd/hub"
 	},
 	"repository": {
 		"type": "git",

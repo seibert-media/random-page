@@ -34,7 +34,7 @@ function RandomPageMacro(params) {
 	this.setPageCount = function () {
 		if (self.params.pageCount) {
 			// asyncElement waits until the element is actually displayed
-			var pageCountInput = asyncElement(by.id("macro-param-pagecount"));
+			var pageCountInput = asyncElement(by.id("macro-param-pageCount"));
 			pageCountInput.clear();
 			pageCountInput.sendKeys(self.params.pageCount);
 		}

@@ -1,0 +1,32 @@
+<html>
+<head>
+	<title>$action.getText("net.seibertmedia.confluence.randompage.admin.action.heading.label")</title>
+	<meta name="decorator" content="atl.admin" />
+	<content tag="selectedWebItem">random-page-admin-web-item</content>
+</head>
+<body>
+<div id="random-page-admin-container">
+	#parse ( "/template/includes/actionerrors.vm" )
+	<form method="POST" class="aui long-label" name="randompageadmin" action="admin-save.action">
+		#form_xsrfToken()
+		<h3>$action.getText("net.seibertmedia.confluence.randompage.admin.action.pagesLimit.title")</h3>
+		<div class="field-group">
+			<label for="pagesLimit">$action.getText("net.seibertmedia.confluence.randompage.admin.action.pagesLimit.label")</label>
+			<input type="number" name="pagesLimit" value="$!{pagesLimit}" id="pagesLimit" class="text short-field" min="1"/>
+			<div class="description">
+				$action.getText("net.seibertmedia.confluence.randompage.admin.action.pagesLimit.description")
+			</div>
+		</div>
+		<div class="buttons-container">
+			<div class="buttons">
+				<input id="confirm" class="submit aui-button " type="submit" name="confirm"
+					   value="$action.getText("net.seibertmedia.confluence.randompage.admin.action.button.save")">
+				<a href="admin.action" id="cancel" class="aui-button-link aui-button">
+					$action.getText("net.seibertmedia.confluence.randompage.admin.action.button.cancel")
+				</a>
+			</div>
+		</div>
+	</form>
+</div>
+</body>
+</html>
