@@ -3,6 +3,8 @@
 var confluenceProtractorBase = require('confluence-protractor-base').confluenceProtractorBase;
 var asyncElement = confluenceProtractorBase.utils.pageObjectUtils.asyncElement;
 
+var RandomPageAdministration = require("../page-objects/RandomPageAdministration");
+
 var sharedPageObjects = require("./common/sharedPageObjects");
 
 describe("RandomPageAdministration", function () {
@@ -10,11 +12,11 @@ describe("RandomPageAdministration", function () {
 	var administration = sharedPageObjects.randomPageAdministration;
 
 	beforeAll(function () {
-		administration.loginAsAdmin();
+		administration.authenticateAsAdmin();
 	});
 
 	afterAll(function () {
-		administration.resetDefaults()
+		administration.resetDefaults();
 	});
 
 	it('opens administration action', function () {
@@ -27,7 +29,7 @@ describe("RandomPageAdministration", function () {
 		var newPagesLimit = "99";
 
 		it('has default pages limit', function () {
-			expect(administration.getPagesLimit()).toBe(administration.DEFAULT_PAGES_LIMIT);
+			expect(administration.getPagesLimit()).toBe(RandomPageAdministration.DEFAULT_PAGES_LIMIT);
 		});
 
 		it("changes value and saves action", function () {

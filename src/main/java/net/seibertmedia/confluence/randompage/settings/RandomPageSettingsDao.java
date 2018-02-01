@@ -20,7 +20,6 @@ public class RandomPageSettingsDao {
 	private static final String RANDOM_PAGE_LIMIT_KEY = "randomPageLimit";
 	private static final Integer DEFAULT_RANDOM_PAGE_LIMIT = 100;
 
-
 	@ComponentImport
 	private final BandanaManager bandanaManager;
 

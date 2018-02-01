@@ -9,8 +9,6 @@ function RandomPageAdministration() {
 
 	var self = this;
 
-	this.DEFAULT_PAGES_LIMIT = "100";
-
 	this.randomPageAdminAction = new ConfluenceAction({
 		path: 'admin/plugins/randompage/admin.action'
 	});
@@ -30,7 +28,7 @@ function RandomPageAdministration() {
 	};
 
 	this.resetDefaults = function() {
-		self.setPagesLimit(self.DEFAULT_PAGES_LIMIT);
+		self.setPagesLimit(RandomPageAdministration.DEFAULT_PAGES_LIMIT);
 		self.save();
 	};
 
@@ -44,5 +42,6 @@ function RandomPageAdministration() {
 }
 
 RandomPageAdministration.prototype = new ConfluenceBase();
+RandomPageAdministration.DEFAULT_PAGES_LIMIT = "100";
 
 module.exports = RandomPageAdministration;

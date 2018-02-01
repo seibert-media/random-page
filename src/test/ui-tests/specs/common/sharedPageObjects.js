@@ -7,7 +7,6 @@ var ConfluencePage = confluenceProtractorBase.pageObjects.ConfluencePage;
 var RandomPage = require("../../page-objects/RandomPage");
 var RandomPageAdministration = require("../../page-objects/RandomPageAdministration");
 
-
 var fruitSpaceKey = "FRUIT";
 var cheeseSpaceKey = "CHEESE";
 var vegetableSpaceKey = "VEGETABLE";

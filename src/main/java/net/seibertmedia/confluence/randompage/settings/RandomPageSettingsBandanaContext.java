@@ -5,7 +5,7 @@ import com.atlassian.confluence.setup.bandana.KeyedBandanaContext;
 
 final class RandomPageSettingsBandanaContext implements KeyedBandanaContext {
 
-	private static final long serialVersionUID = -4182287507056810420L;
+	private static final long serialVersionUID = -5429490540773467136L;
 	private static final String BANDANA_CONTEXT_KEY = "net.seibertmedia.extranet.postinstall";
 
 	static final RandomPageSettingsBandanaContext INSTANCE = new RandomPageSettingsBandanaContext();
