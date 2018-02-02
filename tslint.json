@@ -5,11 +5,20 @@
 	],
 	"jsRules": {},
 	"rules": {
-		"indent": [true, "tabs", 1],
-		"interface-name": [true, "never-prefix"],
+		"indent": [
+			true,
+			"tabs",
+			1
+		],
+		"interface-name": [
+			true,
+			"never-prefix"
+		],
 		"no-console": false,
-		"no-var-requires": false, // ignore while using mixed code,
-		"object-literal-sort-keys": false // ignore for now
+		"no-var-requires": false,
+		// ignore while using mixed code,
+		"object-literal-sort-keys": false
+		// ignore for now
 	},
 	"rulesDirectory": []
 }
