@@ -8,7 +8,7 @@ pageObjectUtils.setDefaultElementTimeout(2 * 1000);
 pageObjectUtils.setDefaultLoadingTimeout(20 * 1000);
 
 var config = require('lodash').merge(confluenceProtractorBase.protractorConfig.config, {
-	baseUrl: 'http://confluence:8090/',
+	baseUrl: 'http://localhost:1990/confluence/',
 	params: {
 		confluenceConfig: 'default',
 		configOverwrite: {
