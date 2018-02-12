@@ -9,12 +9,7 @@ pageObjectUtils.setDefaultLoadingTimeout(20 * 1000);
 
 var config = require('lodash').merge(confluenceProtractorBase.protractorConfig.config, {
 	baseUrl: 'http://localhost:1990/confluence/',
-	params: {
-		confluenceConfig: 'default',
-		configOverwrite: {
-			USERS: {}
-		}
-	},
+	seleniumAddress: "http://localhost:4445/wd/hub",
 	specs: [
 		'specs/common/uploadPlugin.spec.js', // upload the plugin first
 		'specs/common/prepareTestSetup.spec.js',
