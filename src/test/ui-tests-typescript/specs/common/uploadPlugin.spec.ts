@@ -1,5 +1,3 @@
-"use strict";
-
 import {failFastReporter, UniversalPluginManager} from "confluence-protractor-base";
 
 describe("Random Page (plugin installation)", () => {

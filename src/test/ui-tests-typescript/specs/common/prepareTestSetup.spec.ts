@@ -1,5 +1,3 @@
-"use strict";
-
 import {ConfluencePage, ConfluenceSpace, failFastReporter} from "confluence-protractor-base";
 import {sharedPageObjects} from "./sharedPageObjects";
 import {forEach} from "lodash";

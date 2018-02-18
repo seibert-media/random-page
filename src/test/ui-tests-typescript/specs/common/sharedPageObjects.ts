@@ -1,27 +1,25 @@
-"use strict";
-
 import {ConfluenceSpace, ConfluencePage} from "confluence-protractor-base";
 
 import {RandomPage} from "../../page-objects/RandomPage";
 import {RandomPageAdministration} from "../../page-objects/RandomPageAdministration";
 
-const fruitSpaceKey = "FRUIT";
-const cheeseSpaceKey = "CHEESE";
-const vegetableSpaceKey = "VEGETABLE";
+const fruitySpaceKey = "FRUITY";
+const cheesySpaceKey = "CHEESY";
+const vegetalSpaceKey = "VEGETAL";
 
 export const sharedPageObjects = {
 	randomPage: new RandomPage(),
 	randomPageAdministration: new RandomPageAdministration(),
 	spaces: {
-		Fruit: new ConfluenceSpace(fruitSpaceKey, "Fruit"),
-		Cheese: new ConfluenceSpace(cheeseSpaceKey, "Cheese"),
-		Vegetable: new ConfluenceSpace(vegetableSpaceKey, "Vegetable")
+		Fruit: new ConfluenceSpace(fruitySpaceKey, "Fruity (TS)"),
+		Cheese: new ConfluenceSpace(cheesySpaceKey, "Cheesy (TS)"),
+		Vegetable: new ConfluenceSpace(vegetalSpaceKey, "Vegetal (TS)")
 	},
 	pages: {
-		Apple: new ConfluencePage("Apple", fruitSpaceKey),
-		Banana: new ConfluencePage("Banana", fruitSpaceKey),
-		Cherry: new ConfluencePage("Cherry", fruitSpaceKey),
-		Cheddar: new ConfluencePage("Cheddar", cheeseSpaceKey),
-		Carrot: new ConfluencePage("Carrot", vegetableSpaceKey)
+		Apple: new ConfluencePage("Apple", fruitySpaceKey),
+		Banana: new ConfluencePage("Banana", fruitySpaceKey),
+		Cherry: new ConfluencePage("Cherry", fruitySpaceKey),
+		Cheddar: new ConfluencePage("Cheddar", cheesySpaceKey),
+		Carrot: new ConfluencePage("Carrot", vegetalSpaceKey)
 	}
 };

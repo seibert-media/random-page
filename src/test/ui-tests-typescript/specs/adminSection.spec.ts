@@ -1,5 +1,3 @@
-"use strict";
-
 import {by, element} from "protractor";
 
 import {pageObjectUtils} from "confluence-protractor-base";
