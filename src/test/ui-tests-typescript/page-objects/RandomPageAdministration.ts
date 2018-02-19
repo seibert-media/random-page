@@ -1,9 +1,7 @@
 import {ConfluenceAction, ConfluenceBase} from "confluence-protractor-base";
 import {by, element} from "protractor";
 
-export {RandomPageAdministration}
-
-class RandomPageAdministration extends ConfluenceBase {
+export class RandomPageAdministration extends ConfluenceBase {
 
 	static readonly DEFAULT_PAGES_LIMIT: string = "100";
 
