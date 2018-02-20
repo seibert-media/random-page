@@ -3,7 +3,7 @@ import {by, element} from "protractor";
 
 export class RandomPageAdministration extends ConfluenceBase {
 
-	static readonly DEFAULT_PAGES_LIMIT: string = "100";
+	static readonly DEFAULT_PAGES_LIMIT: number = 100;
 
 	public randomPageAdminAction = new ConfluenceAction({
 		path: 'admin/plugins/randompage/admin.action'
@@ -17,7 +17,7 @@ export class RandomPageAdministration extends ConfluenceBase {
 		return this.getPagesLimitElement().getAttribute('value');
 	};
 
-	public setPagesLimit(newPagesLimit) {
+	public setPagesLimit(newPagesLimit: number) {
 		const pagesLimitElement = this.getPagesLimitElement();
 		pagesLimitElement.clear();
 		pagesLimitElement.sendKeys(newPagesLimit);

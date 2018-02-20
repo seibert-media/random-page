@@ -25,10 +25,10 @@ describe("RandomPageAdministration", () => {
 	});
 
 	describe("PagesLimit", () => {
-		const newPagesLimit = "99";
+		const newPagesLimit = 99;
 
 		it('has default pages limit', () => {
-			expect(administration.getPagesLimit()).toBe(RandomPageAdministration.DEFAULT_PAGES_LIMIT);
+			expect(administration.getPagesLimit()).toBe(RandomPageAdministration.DEFAULT_PAGES_LIMIT.toString());
 		});
 
 		it("changes value and saves action", () => {
@@ -42,7 +42,7 @@ describe("RandomPageAdministration", () => {
 		});
 
 		it("persists new value", () => {
-			expect(administration.getPagesLimit()).toBe(newPagesLimit);
+			expect(administration.getPagesLimit()).toBe(newPagesLimit.toString());
 		});
 	});
 });

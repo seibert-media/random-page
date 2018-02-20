@@ -42,6 +42,6 @@ function RandomPageAdministration() {
 }
 
 RandomPageAdministration.prototype = new ConfluenceBase();
-RandomPageAdministration.DEFAULT_PAGES_LIMIT = "100";
+RandomPageAdministration.DEFAULT_PAGES_LIMIT = 100;
 
 module.exports = RandomPageAdministration;

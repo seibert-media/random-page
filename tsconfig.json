@@ -1,18 +1,13 @@
 {
 	"compilerOptions": {
 		"target": "es6",
-		"allowJs": true,
-		"checkJs": false,
-		// TODO: Discuss
+		"allowJs": false,
 		"module": "commonjs",
-		"noImplicitAny": false,
-		// TODO: Discuss
-		"removeComments": true,
+		"noImplicitAny": true,
+		"removeComments": false,
 		"noLib": false,
 		"preserveConstEnums": true,
-		"strictNullChecks": false,
-		// TODO: Discuss
-		"suppressImplicitAnyIndexErrors": true,
+		"strictNullChecks": true,
 		"outDir": "./built/"
 	},
 	"include": [
