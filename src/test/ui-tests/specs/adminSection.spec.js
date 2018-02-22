@@ -26,10 +26,10 @@ describe("RandomPageAdministration", function () {
 	});
 
 	describe("PagesLimit", function () {
-		var newPagesLimit = "99";
+		var newPagesLimit = 99;
 
 		it('has default pages limit', function () {
-			expect(administration.getPagesLimit()).toBe(RandomPageAdministration.DEFAULT_PAGES_LIMIT);
+			expect(administration.getPagesLimit()).toBe(RandomPageAdministration.DEFAULT_PAGES_LIMIT.toString());
 		});
 
 		it("changes value and saves action", function () {
@@ -43,7 +43,7 @@ describe("RandomPageAdministration", function () {
 		});
 
 		it("persists new value", function () {
-			expect(administration.getPagesLimit()).toBe(newPagesLimit);
+			expect(administration.getPagesLimit()).toBe(newPagesLimit.toString());
 		});
 	});
 });

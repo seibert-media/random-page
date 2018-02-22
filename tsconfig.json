@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+		"target": "es6",
+		"allowJs": false,
+		"module": "commonjs",
+		"noImplicitAny": true,
+		"removeComments": false,
+		"noLib": false,
+		"preserveConstEnums": true,
+		"strictNullChecks": true,
+		"outDir": "./built/"
+	},
+	"include": [
+		"./src/test/ui-tests-typescript/**/*"
+	],
+	"files": [
+		"./src/test/ui-tests-typescript/protractorConfig.ts"
+	]
+}
