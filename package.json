@@ -6,7 +6,7 @@
 	"devDependencies": {
 		"lodash.foreach": "^4.5.0",
 		"@types/lodash": "^4.14.68",
-		"confluence-protractor-base": "0.7.11-1",
+		"confluence-protractor-base": "0.7.11",
 		"eslint-plugin-jasmine": "^2.2.0",
 		"eslint-plugin-protractor": "^1.34.1",
 		"eslint": "^4.6.1",
